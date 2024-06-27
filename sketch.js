@@ -24,7 +24,7 @@ let codes = {
 
 let size;
 
-let occupancy_factor = 0.84
+let occupancy_factor = 0.85
 
 let arr = new Array(cols).fill().map(() => {
   
