@@ -7,7 +7,7 @@ if(dimen !== null){
   rows = dimen.rows
   cols = dimen.cols
 }else{
-  window.localStorage.setItem('dimen', JSON.stringify({rows:14, cols:7}))
+  window.localStorage.setItem('dimen', JSON.stringify({rows:7, cols:14}))
 }
 
 function setIt(x, y){
