@@ -164,7 +164,7 @@ function draw(){
 async function solveMaze(pos, prev_dir){
   
   solution.push(JSON.parse(JSON.stringify(pos)))
-  await delay(20000/(rows*cols) < 1000 ? 20000/(rows*cols) : 1000)
+  await delay(20000/(rows*cols) < 500 ? 20000/(rows*cols) : 500)
   
   if(pos.x == cols-1 && pos.y == rows-1) return solution
   
