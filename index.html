@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: black;
+      }
+      * {
+        background: teal;
+        color: white;
+        font-size: 15px;
+        letter-spacing: 2px;
+        overflow: scroll;
+        user-select: none;
+      }
+    </style>
+    <!--<script src="http://localhost:8080/p5/lib/p5.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js">
+    </script>-->
+  </head>
+  <body>
+    
+    <script>
+      
+      let names = ["http://localhost:8080/p5/lib/p5.min.js",
+                   "sketch.js"];
+      
+      function loadFiles() { 
+        var script =  document.createElement('script');
+        script.src = "http://localhost:8080/resources/eruda.js"; 
+        //script.src = 'https://cdn.jsdelivr.net/npm/eruda'
+        document.body.appendChild(script);
+        script.onload = async function () { 
+          eruda.init()
+          for(name of names){
+            await delayUntilLoaded(name)
+          }
+        }
+      }
+      
+      function delayUntilLoaded(name){
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script")
+          script.src = name
+          script.onload = resolve
+          script.onerror = reject
+          document.body.appendChild(script)
+        }
+        )
+      }
+      
+      loadFiles()
+      
+    </script>
+    
+  </body>
+</html>
